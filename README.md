@@ -1,8 +1,11 @@
 # Pokedex
 
-Consumes the PokéAPI and displays the original 151 Pokémon.
+Consumes the PokéAPI and displays information about the original 151 Pokémon.
+
+Developed using Angular, and Tailwind CSS for ease of styling.
 
 ![Homepage](pokedex/src/app/assets/ex1.png) 
+
 ![Pokemon stats](pokedex/src/app/assets/ex2.png)
 
 ## Getting Started 
@@ -25,4 +28,5 @@ To run the project locally:
 
 ## More Information
 PokéAPI REST API Docs: https://pokeapi.co/docs/v2
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
