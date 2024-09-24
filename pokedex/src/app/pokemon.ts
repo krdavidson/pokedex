@@ -1,9 +1,8 @@
 export interface Pokemon {
-    id: number
-    name: string
-    photo: string
-    type: Array<string>
-    height: number
-    weight: number
-    description: string
+    id: number;
+    name: string;
+    image: string;
+    type: Array<string>;
+    height: number;
+    weight: number;
 }

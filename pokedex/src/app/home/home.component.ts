@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IndexCardComponent } from '../index-card/index-card.component';
 import { Pokemon } from '../pokemon';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +12,27 @@ import { Pokemon } from '../pokemon';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  pokemon: Pokemon = {
-    id: 1,
-    name: "Bulbasaur",
-    photo: "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png",
-    type: ["grass", "poison"],
-    height: 1.6,
-    weight: 6.9,
-    description: "When the bulb on\nits back grows\nlarge, it appears\fto lose the\nability to stand\non its hind legs.",
-  };
+  allPokemon: any[] = []; // Store all 151 Pokémon details
+
+  // Inject the API service
+  dataService: DataService = inject(DataService);
+
+  constructor() {
+    this.dataService.getAllPokemon().subscribe((response: any) => {
+      response.results.forEach((result: { name: string }) => {
+        this.dataService.getPokemonDetails(result.name)
+          .subscribe((nextResponse: any) => {
+            const mappedPokemon: Pokemon = {
+              id: nextResponse.id,
+              name: nextResponse.name,
+              image: nextResponse.sprites.front_default,
+              type: nextResponse.types.map((t: any) => t.type.name),
+              height: nextResponse.height,
+              weight: nextResponse.weight,
+            };
+            this.allPokemon.push(mappedPokemon);
+          });
+      });
+    });
+  }
 }

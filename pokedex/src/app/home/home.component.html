@@ -1,3 +1,6 @@
 <section class="cards">
-    <app-index-card [pokemon]="pokemon"></app-index-card>
-</section>  
+  <app-index-card 
+    *ngFor="let pokemon of allPokemon"
+    [pokemon]="pokemon"
+  ></app-index-card>
+</section>
