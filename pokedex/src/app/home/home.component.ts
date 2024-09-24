@@ -25,7 +25,7 @@ export class HomeComponent {
             const mappedPokemon: Pokemon = {
               id: nextResponse.id,
               name: nextResponse.name,
-              image: nextResponse.sprites.front_default,
+              image: nextResponse.sprites.other['official-artwork'].front_default,
               type: nextResponse.types.map((t: any) => t.type.name),
               height: nextResponse.height,
               weight: nextResponse.weight,

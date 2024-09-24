@@ -1,9 +1,17 @@
-<section class="card">
-    <img
-        class="card-photo"
-        [src]= "pokemon.image"
-        alt="Photo of {{ pokemon.name }}"
-    />
-    <h2 class="card-heading"> {{ pokemon.name }} </h2>
-    <p class="card-heading"> {{ pokemon.id}} </p>
-</section>
+<div class="flex flex-col items-center bg-poke-green rounded-lg">
+    <div class="bg-poke-green flex justify-center">
+        <img
+            class="w-60 p-4"
+            [src]="pokemon.image"
+            alt="Photo of {{ pokemon.name }}"
+        />
+    </div>
+    <div class="bg-orange-200 w-full p-4">
+        <p class="font-mono text-2xl text-yellow-900"> {{ pokemon.name }} </p>
+        <p class="font-mono text-xl text-yellow-900"> #{{ pokemon.id }} </p>
+        <p class="font-mono text-m text-yellow-900"> height: {{ pokemon.height/10}}m </p>
+        <p class="font-mono text-m text-yellow-900"> weight: {{ pokemon.weight/10 }}kg </p>
+        <p class="font-mono text-m text-yellow-900"> {{ pokemon.type }}</p>
+    </div>
+    
+</div>
