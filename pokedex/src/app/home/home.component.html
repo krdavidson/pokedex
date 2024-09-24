@@ -1,6 +1,12 @@
-<section class="grid grid-cols-4  gap-6 m-20">
-  <app-index-card 
-    *ngFor="let pokemon of allPokemon"
-    [pokemon]="pokemon"
-  ></app-index-card>
-</section>
+<nav class="bg-red-500 h-14">
+    <form class="p-2 ml-12">
+        <input class= "p-1 rounded-md" type="text" placeholder="Look for a Pokemon..." />
+        <button class="border bg-poke-green rounded-md m-1 p-1" type="button">Search</button>
+    </form>
+</nav>
+<div class="grid grid-cols-4  gap-6 m-20">
+    <app-index-card 
+      *ngFor="let pokemon of allPokemon"
+      [pokemon]="pokemon"
+    ></app-index-card>
+</div>

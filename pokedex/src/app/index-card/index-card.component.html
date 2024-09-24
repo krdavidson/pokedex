@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center bg-poke-green rounded-lg">
+<div class="flex flex-col items-center bg-poke-green rounded-lg" [routerLink]="['/details', pokemon.id]">
     <div class="bg-poke-green flex justify-center">
         <img
             class="w-60 p-4"
@@ -13,5 +13,4 @@
         <p class="font-mono text-m text-yellow-900"> weight: {{ pokemon.weight/10 }}kg </p>
         <p class="font-mono text-m text-yellow-900"> {{ pokemon.type }}</p>
     </div>
-    
 </div>

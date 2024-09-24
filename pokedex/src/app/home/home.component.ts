@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { IndexCardComponent } from '../index-card/index-card.component';
 import { Pokemon } from '../pokemon';
 import { DataService } from '../data.service';
+import { DetailsComponent } from '../details/details.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, IndexCardComponent],
+  imports: [CommonModule, IndexCardComponent, DetailsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

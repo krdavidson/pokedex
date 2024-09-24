@@ -1,0 +1,20 @@
+<div class="flex justify-center items-center h-screen bg-gray-100">
+    <!-- Card container -->
+    <div class="bg-orange-200 shadow-lg rounded-lg max-w-md w-full" *ngIf="pokemon">
+      <div class="bg-poke-green flex justify-center p-4 rounded-t-lg">
+        <img
+          class="w-60"
+          [src]="pokemon.image"
+          alt="Photo of {{ pokemon.name }}"
+        />
+      </div>
+      <div class="bg-orange-200 p-6 rounded-b-lg">
+        <p class="font-mono text-2xl text-yellow-900"> {{ pokemon.name }} </p>
+        <p class="font-mono text-xl text-yellow-900"> #{{ pokemon.id }} </p>
+        <p class="font-mono text-m text-yellow-900"> Height: {{ pokemon.height / 10 }} m </p>
+        <p class="font-mono text-m text-yellow-900"> Weight: {{ pokemon.weight / 10 }} kg </p>
+        <p class="font-mono text-m text-yellow-900"> Type: {{ pokemon.type }}</p>
+        <p class="font-mono text-m text-yellow-900 my-4"> {{ pokeDescription }}</p>
+      </div>
+    </div>
+  </div>
