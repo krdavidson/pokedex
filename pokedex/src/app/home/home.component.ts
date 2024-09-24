@@ -13,14 +13,16 @@ import { DetailsComponent } from '../details/details.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  allPokemon: any[] = []; // Store all 151 Pokémon details
+  allPokemon: any[] = [];
 
   // Inject the API service
   dataService: DataService = inject(DataService);
 
   constructor() {
+    // Get all 151 Pokemon
     this.dataService.getAllPokemon().subscribe((response: any) => {
       response.results.forEach((result: { name: string }) => {
+        // Get the details of each Pokemon and map them to the interface
         this.dataService.getPokemonDetails(result.name)
           .subscribe((nextResponse: any) => {
             const mappedPokemon: Pokemon = {

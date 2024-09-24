@@ -18,6 +18,7 @@ export class DataService {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
   }
 
+  // Get the Pokémon flavour text entry description
   getPokemonDescription(id: number): Observable<any> {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
   }
