@@ -2,7 +2,8 @@
 </nav>
 <div class="grid grid-cols-4  gap-6 m-20">
     <app-index-card 
-      *ngFor="let pokemon of objectValues(pokemonCache)"
+      *ngFor="let pokemon of objectValues(pc)"
       [pokemon]="pokemon"
     ></app-index-card>
+    <app-details></app-details>
 </div>
