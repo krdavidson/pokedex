@@ -13,7 +13,7 @@ import { DetailsComponent } from '../details/details.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  allPokemon: any[] = [];
+  pokemonCache: { [id: number]: Pokemon } = {};
 
   // Inject the API service
   dataService: DataService = inject(DataService);
@@ -23,9 +23,10 @@ export class HomeComponent {
     this.dataService.getAllPokemon().subscribe((response: any) => {
       response.results.forEach((result: { name: string }) => {
         // Get the details of each Pokemon and map them to the interface
-        this.dataService.getPokemonDetails(result.name)
+        if (!this.pokemonCache[response.id]) {
+          this.dataService.getPokemonDetails(result.name)
           .subscribe((nextResponse: any) => {
-            const mappedPokemon: Pokemon = {
+            this.pokemonCache[nextResponse.id] = {
               id: nextResponse.id,
               name: nextResponse.name,
               image: nextResponse.sprites.other['official-artwork'].front_default,
@@ -33,9 +34,13 @@ export class HomeComponent {
               height: nextResponse.height,
               weight: nextResponse.weight,
             };
-            this.allPokemon.push(mappedPokemon);
           });
+        }   
       });
     });
+  }
+
+  objectValues(obj: any): any[] {
+    return Object.values(obj);
   }
 }
